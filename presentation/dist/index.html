@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Typescript</title>
+
+		<link rel="stylesheet" href="reset.css">
+		<link rel="stylesheet" href="reveal.css">
+		<link rel="stylesheet" href="theme/moon.css">
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+		<style>
+			.aboutTypescript{
+				display: flex;
+			}
+			.col {
+				flex: 1;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<p>Typescript</p>
+					<img data-src="images/startPict.jpg" width="300" height="300">
+				</section>
+				<section>
+					<section>
+						<p>How it was created?</p>
+						<img data-src="images/typescriptIco.jpg" width="300" height="300">
+					</section>
+					<section>
+						<div class="aboutTypescript">
+							<div class="col">
+								<p>Microsoft</p>
+								<img data-src="images/microsoft.jpg" width="300" height="300">
+							</div>
+							<div class="col">
+								<p>Anders Hejlsberg</p>
+								<img data-src="images/Anders_Hejlsberg.jpg" width="300" height="300">
+							</div>
+						</div>
+					</section>
+				</section>
+				<section>
+					<section>
+						<p>Typescript solves some of the problems of javascript</p>
+						<img data-src="images/typescript2.jpg" width="400" height="300">
+					</section>
+					<section>
+						<p>Angular as well as a number of frameworks and libraries use Typescript</p>
+						<img data-src="images/AngularTypescript.jpg" width="500" height="300">
+					</section>
+				</section>
+				<section>
+					<p>Types of Typescript</p>
+					<img data-src="images/types.jpg" width="500" height="300">
+				</section>
+				<section>
+					<p>Javascript is a leader in web</p>
+					<img data-src="images/javascript.jpg" width="500" height="300">
+				</section>
+				<section>
+					<p>Typescript is in the top 10 most popular programming languages</p>
+					<img data-src="images/top10.jpg" width="800" height="300">
+				</section>
+				<section>
+					<p>Dynamic typing of Javascript is both an advantage and a disadvantage</p>
+					<img data-src="images/basedJS.jpg" width="500" height="400">
+				</section>
+				<section>
+					<p>Disadvantages of Typescript</p>
+					<img data-src="images/disadvantages.jpg" width="500" height="400">
+				</section>
+				<section>
+					<p>How install Typescript?</p>
+					<img data-src="images/install.jpg" width="500" height="400">
+				</section>
+				<section>
+					<p>Opportunities of Typescript</p>
+					<img data-src="images/opportunities.jpg" width="500" height="400">
+				</section>
+				<section>
+					<p>Types in Typescript</p>
+					<img data-src="images/typesTS.jpg" width="500" height="400">
+				</section>
+				<section>
+					<section>
+						<p>TypeScript supports multiple set types</p>
+						<img data-src="images/sets.jpg" width="500" height="400">
+					</section>
+					<section>
+						<p>Maps are typically used to define relationships between keys and values to represent application-specific data.</p>
+						<pre>
+							<code>
+								type IUser {
+									id: number
+									username: string
+									name: string
+								}
+								const user: IUser = {
+									id: 1,
+									username: 'Bear',
+									name: 'David'
+								}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Vectors are a sequential indexed data structure containing fixed types for all elements.</p>
+						<pre>
+							<code>
+								type IUser {
+									id: number
+									username: string
+									name: string
+								}
+								const user1: IUser = {
+									id: 1,
+									username: 'Bear',
+									name: 'David'
+								}
+								const user2: IUser = {
+									id: 2,
+									username: 'Floppa',
+									name: 'Alex'
+								}
+								const userVecotr: IUser[] = [user1, user2];
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Tuples are also an indexed data structure, but the element types can differ depending on their position.</p>
+						<pre>
+							<code>
+								type IUser {
+									id: number
+									username: string
+									name: string
+								}
+								const user1: IUser = {
+									id: 1,
+									username: 'Bear',
+									name: 'David'
+								}
+								const userTuple: [IUser, number] = [user1, 10];
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Type guards are expressions that perform run-time checks, 
+							the result of which can be used by the type system to narrow the scope of the argument being checked.</p>
+							<pre>
+								<code>
+									function isUser(u: unknown): u is User {
+										if(u && typeof u === 'object'){
+											return 'username' in u && 'currentToken' in u;
+										}
+										return false;
+									}
+									function getUserAddress(user: User | string){
+										if(isUser(user)) {
+											return fetchFromEmail(user);
+										}
+										return fetchFromId(user.id);
+									}
+								</code>
+							</pre>
+					</section>
+					<section>
+						<p>Exclusive joins are joins with a common literal field.</p>
+						<pre>
+							<code>
+								type Member = {
+									type: 'member'
+									currentProject: string
+								}
+								type Admin = {
+									type: 'admin'
+									projects: string[]
+								}
+								type User = Member | Admin;
+								function getFirstProject(u: User) {
+									if (u.type === 'member') {
+										return u.currentProject;
+									}
+									return u.projects[0];
+								}
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<p>Typescript has the ability to describe the types of more complex objects.</p>
+						<img data-src="images/aboutTypes.jpg" width="700" height="400">
+					</section>
+					<section>
+						<p>TypeScript provides a special type syntax for arrays to make it easier for you to describe and document your code.</p>
+						<pre>
+							<code>
+								let list: number[] = [10, 20, 30];
+								let colors: string[] = ['red', 'green', 'blue'];
+								console.log(list[0]);
+								console.log(colors[1]);
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>Interfaces are the primary way in TypeScript to combine multiple type declarations into a single named declaration.</p>
+						<pre>
+							<code>
+								interface IUser {
+									id: number;
+									name: string;
+								}
+								let employee: IUser = {
+			
+									id: 1, 
+									name: "Tom"
+								}
+								console.log("id: ", employee.id);
+								console.log("name: ", employee.name);
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>In addition to the simple types discussed above, there are several types that have a special meaning in TypeScript.</p>
+						<img data-src="images/nullUndefined.jpg" width="500" height="400">
+					</section>
+					<section>
+						<p>Generics - Generic Types.</p>
+						<pre>
+							<code>
+								function identity< T >(arg: T): T {
+									return arg;
+								}
+								let numberOutput = identity< T >(1);
+								let wrongOutput = identity< Number >("sdf");
+								let stringOutput = identity< String >("Word");
+							</code>
+						</pre>
+					</section>
+					<section>
+						<p>The intersection type is a very common pattern in JavaScript where you take two elements 
+							and create a new one that has the functionality of both of those objects.</p>
+						<pre>
+							<code>
+								enum Season { Winter, Spring, Summer, Autumn };
+								let current: Season = Season.Summer;
+								console.log(current);
+								current = Season.Autumn;
+							</code>
+						</pre>
+					</section>
+				</section>
+				<section>
+					<p>The behavior of the transpiler can be configured using the tsconfig.json file located at the root of the project.</p>
+					<img data-src="images/tsconfig.jpg" width="800" height="400">
+				</section>
+				<section>
+					<p>In conclusion, I would like to say that TypeScript is not an ideal development tool, but at the moment it is the best solution.</p>
+					<img data-src="images/end.jpg" width="500" height="400">
+				</section>
+			</div>
+		</div>
+
+		<script src="reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			Reveal.initialize({
+				hash: true,
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

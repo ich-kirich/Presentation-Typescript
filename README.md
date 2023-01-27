@@ -1,0 +1,1 @@
+It is my presentation about Typescript that create by using reveal.js.
